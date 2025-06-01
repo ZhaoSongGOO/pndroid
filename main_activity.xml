@@ -1,0 +1,24 @@
+<LinearLayout
+        layout_width="400"
+        layout_height="800"
+        background_color="black">
+    <TextView
+        layout_width="300"
+        layout_height="50"
+        text="Hello World"
+        id="hello"
+        background_color="red"/>
+    <TextView
+        layout_width="100"
+        layout_height="100"
+        text="Bye World"
+        id="bye"
+        background_color="green"/>
+
+    <Button
+        id="button"
+        layout_width="50"
+        layout_height="50"
+        text="Button"
+        background_color="orange"/>
+</LinearLayout>

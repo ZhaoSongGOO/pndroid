@@ -4,23 +4,31 @@ class LayoutParams:
         self.height = None
         self.background_color = None
         self.origin = None
+        self.id = None
 
 
 class View:
-    def __init__(self):
-        self.layout_params = LayoutParams()
+    def __init__(self, layout_params: LayoutParams):
+        self.layout_params = layout_params
+        self.origin = self.layout_params.origin
 
     def measure(self, width, height):
-        self.layout_params.width = width
-        self.layout_params.height = height
-        self.layout_params.background_color = "green"
+        if self.layout_params.width is None:
+            self.layout_params.width = width
+        if self.layout_params.height is None:
+            self.layout_params.height = height
         self.on_measure(width, height)
 
     def on_measure(self, width, height):
         pass
 
+    def set_origin(self, origin):
+        self.origin = origin
+
     def layout(self, left, top):
         self.layout_params.origin = (left, top)
+        if self.origin is None:
+            self.origin = self.layout_params.origin
         self.on_layout(left, top)
 
     def on_layout(self, left, top):
@@ -30,4 +38,7 @@ class View:
         self.on_draw(canvas)
 
     def on_draw(self, canvas):
+        pass
+
+    def add_view(self, view):
         pass

@@ -1,7 +1,7 @@
 import threading
 from time import sleep
 
-VSYNC_INTERVAL = 5
+VSYNC_INTERVAL = 0.2
 
 
 class _VSync:

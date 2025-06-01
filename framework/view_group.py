@@ -2,8 +2,8 @@ from framework.view import View, LayoutParams
 
 
 class ViewGroup(View):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, layout_params):
+        super().__init__(layout_params)
         self.children = []
 
     def add_view(self, view: View):
@@ -14,8 +14,13 @@ class ViewGroup(View):
             view.measure(width, height)
 
     def on_draw(self, canvas):
-        canvas.display(
-            f"Draw view in ({self.layout_params.origin}) with ({self.layout_params.width}, {self.layout_params.height})"
+        canvas.draw_rectangle(
+            self,
+            self.origin[0],
+            self.origin[1],
+            self.layout_params.width,
+            self.layout_params.height,
+            self.layout_params.background_color,
         )
         for view in self.children:
             view.draw(canvas)
