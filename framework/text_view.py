@@ -21,6 +21,6 @@ class TextView(View):
             self.layout_params.height,
             self.layout_params.background_color,
         )
-        x = self.layout_params.origin[0] + self.layout_params.width / 2
-        y = self.layout_params.origin[1] + self.layout_params.height / 2
+        x = self.origin[0] + self.layout_params.width / 2
+        y = self.origin[1] + self.layout_params.height / 2
         canvas.draw_text(self, x, y, self.text)

@@ -12,17 +12,7 @@ class ButtonView(TextView):
         super().on_measure(width, height)
 
     def on_draw(self, canvas):
-        canvas.draw_rectangle(
-            self,
-            self.origin[0],
-            self.origin[1],
-            self.layout_params.width,
-            self.layout_params.height,
-            self.layout_params.background_color,
-        )
-        x = self.layout_params.origin[0] + self.layout_params.width / 2
-        y = self.layout_params.origin[1] + self.layout_params.height / 2
-        canvas.draw_text(self, x, y, self.text)
+        super().on_draw(canvas)
         self.canvas = canvas
         if self.click_handler is not None:
             self.canvas.bind_click_handler(self, self.click_handler)
