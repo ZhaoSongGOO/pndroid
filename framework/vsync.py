@@ -29,7 +29,6 @@ class _VSync:
 
     def stop(self):
         self.loop_enable = False
-        self.thread.join()
 
 
 VSync = _VSync()
